@@ -1,0 +1,64 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+  headerInfo: { typeName: 'Child',
+                typeNamePlural: 'Child',
+    title:       { value: 'Companycode'},
+    description: { value: 'Companycode' }
+              } }
+
+annotate entity ZCOMP_C_P with
+{
+  @UI.facet: [ { id:              'Child',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Child',
+                 position:        10 }]
+
+
+  @UI: {
+       lineItem:       [ { position: 10, label: 'Società', importance: #HIGH } ],
+       identification: [ { position: 10, label: 'Società' } ] }
+  Companycode;
+
+  @UI: {
+       lineItem:       [ { position: 20, label: 'Business Partner', importance: #HIGH } ],
+       identification: [ { position: 20, label: 'Business Partner' } ] }
+  BusinessPartner;
+
+  @UI: {
+       lineItem:       [ { position: 30, label: 'Documento', importance: #HIGH } ],
+       identification: [ { position: 30, label: 'Documento' } ] }
+  AccountingDocument;
+
+  @UI: {
+       lineItem:       [ { position: 40, label: 'Esercizio', importance: #HIGH } ],
+       identification: [ { position: 40, label: 'Esercizio' } ] }
+  FiscalYear;
+
+  @UI: {
+       lineItem:       [ { position: 50, label: 'Tipo BP', importance: #HIGH } ],
+       identification: [ { position: 50, label: 'Tipo BP' } ] }
+  FinancialAccountType;
+
+  @UI: {
+   lineItem:       [ { position: 60, label: 'Data Doc.', importance: #HIGH }],
+   identification: [ { position: 60 } ] }
+  Documentdate;
+  
+    @UI: {
+   lineItem:       [ { position: 61, label: 'Data Scad.', importance: #HIGH }],
+   identification: [ { position: 61 } ] }
+  NetDueDate;
+  
+  @UI: {
+       lineItem:       [ { position: 70, label: 'Divisa', importance: #HIGH } ],
+       identification: [ { position: 70, label: 'Divisa' } ] }
+  Currency;
+
+  @UI: {
+   lineItem:       [ { position: 80, label: 'Importo', importance: #HIGH }],
+   identification: [ { position: 80, label: 'Importo' } ] }
+  Amount;
+
+}

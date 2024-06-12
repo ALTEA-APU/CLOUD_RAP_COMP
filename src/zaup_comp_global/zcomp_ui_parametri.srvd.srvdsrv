@@ -1,0 +1,4 @@
+@ObjectModel.leadingEntity.name: 'ZCOMP_C_PARAMETRITP'
+define service ZCOMP_UI_PARAMETRI {
+  expose ZCOMP_C_PARAMETRITP as Parametri;
+}

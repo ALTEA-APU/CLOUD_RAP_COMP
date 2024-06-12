@@ -1,0 +1,10 @@
+projection;
+strict ( 2 );
+define behavior for ZCOMP_C_PARAMETRITP alias Parametri
+use etag
+
+{
+  use create;
+  use update;
+  use delete;
+}

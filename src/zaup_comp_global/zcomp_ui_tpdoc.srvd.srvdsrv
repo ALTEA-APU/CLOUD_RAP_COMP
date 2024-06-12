@@ -1,0 +1,4 @@
+@ObjectModel.leadingEntity.name: 'ZCOMP_C_TPDOCTP'
+define service ZCOMP_UI_TPDOC {
+  expose ZCOMP_C_TPDOCTP as TpDoc;
+}

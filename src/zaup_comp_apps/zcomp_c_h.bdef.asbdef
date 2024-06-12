@@ -1,0 +1,17 @@
+projection;
+strict ( 2 );
+
+define behavior for ZCOMP_C_H alias Root
+{
+
+  use action set_dates;
+  use action compensa;
+
+  use association _Child;
+}
+
+define behavior for ZCOMP_C_P alias Child
+{
+
+  use association _Root;
+}

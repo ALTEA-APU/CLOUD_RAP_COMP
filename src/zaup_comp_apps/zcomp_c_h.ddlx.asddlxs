@@ -1,0 +1,124 @@
+@Metadata.layer: #CUSTOMER
+
+@UI: {
+  headerInfo: {
+    typeName: 'Dati Fattura',
+    typeNamePlural: 'Dati Fattura',
+    title:       { value: 'Companycode'},
+    description: { value: 'Companycode' }
+              }
+    }
+annotate entity ZCOMP_C_H with
+{
+  @UI.facet: [ { id:              'Root',
+                 purpose:         #STANDARD,
+                 type:            #IDENTIFICATION_REFERENCE,
+                 label:           'Root',
+                 position:        10 },
+
+               { id:              'Child',
+                 purpose:         #STANDARD,
+                 type:            #LINEITEM_REFERENCE,
+                 label:           'Child',
+                 position:        20,
+                 targetElement:   '_Child'}]
+
+
+  @UI: {
+       lineItem:       [ { position: 10, importance: #HIGH } ,
+
+                    { label: 'Imposta Data',
+                     type: #FOR_ACTION,
+                     invocationGrouping: #CHANGE_SET,
+                     dataAction: 'SetData' },
+
+                   { label: 'Compensa',
+                     type: #FOR_ACTION,
+                     invocationGrouping: #CHANGE_SET,
+                     dataAction: 'Compensa' }
+
+                     ],
+
+
+       identification: [ { position: 10, importance: #HIGH } ],
+       selectionField: [ { position: 10 } ]
+     }
+
+  @Search.defaultSearchElement: true
+  @Consumption.valueHelpDefinition: [{ entity: { name: 'I_CompanyCode' ,
+                                            element: 'CompanyCode' } }]
+  Companycode;
+
+  @UI: {
+  lineItem:       [ { position: 20, importance: #HIGH } ],
+  identification: [ { position: 20, importance: #HIGH } ]
+  }
+  CompanyCodeName;
+
+  @UI: {
+   lineItem:       [ { position: 30, label: 'Business Partner', importance: #HIGH } ],
+   identification: [ { position: 30, label: 'Business Partner', importance: #HIGH } ],
+   selectionField: [ { position: 30 } ]
+  }
+  @Search.defaultSearchElement: true
+  @EndUserText.label: 'Business Partner'
+  BusinessPartner;
+
+  @UI: {
+  lineItem:       [ { position: 40, label: 'Nome BP', importance: #HIGH } ],
+  identification: [ { position: 40, label: 'Nome BP', importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Nome BP'
+  CustomerName;
+
+
+  @UI: {
+  lineItem:       [ { position: 50, label: 'Esercizio Doc. Pareggio', importance: #HIGH } ],
+  identification: [ { position: 50, label: 'Esercizio Doc. Pareggio', importance: #HIGH } ]
+  }  
+  @EndUserText.label: 'Esercizio Doc. Pareggio'
+  ClearingDocFiscalYear;
+
+  @UI: {
+  lineItem:       [ { position: 60, label: 'Doc. Pareggio', importance: #HIGH } ],
+  identification: [ { position: 60, label: 'Doc. Pareggio', importance: #HIGH } ],
+  selectionField: [ { position: 60 } ]
+  }
+  @EndUserText.label: 'Doc. Pareggio'
+  ClearingAccountingDocument;
+
+  @UI: {
+  lineItem:       [ { position: 70, label: 'Data Doc. Pareggio', importance: #HIGH } ],
+  identification: [ { position: 70, label: 'Data Doc. Pareggio', importance: #HIGH } ],
+  selectionField: [ { position: 70 } ]
+  }
+  @EndUserText.label: 'Data Doc. Pareggio'
+  ClearingDocumentDate;
+
+  @UI: {
+  lineItem:       [ { position: 80, label: 'Data Osservazione',  importance: #HIGH } ],
+  identification: [ { position: 80, label: 'Data Osservazione',  importance: #HIGH } ]
+  }
+  @EndUserText.label: 'Data Osservazione'
+  Datascad;
+
+  @UI: {
+  lineItem:       [ { position: 90, importance: #HIGH } ],
+  identification: [ { position: 90, importance: #HIGH } ]
+  }
+  delta;
+
+  @UI: {
+       lineItem:       [ { position: 99, importance: #HIGH,
+                           value: 'Stato', criticality: 'Semaforo' } ],                          
+       identification: [ { position: 99 } ],
+       selectionField: [ { position: 99 } ] }
+  Stato;
+
+  @UI.hidden: true
+  DescrizioneStato;
+
+  @UI.hidden: true
+  Semaforo;
+
+}

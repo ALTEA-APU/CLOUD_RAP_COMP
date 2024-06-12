@@ -1,0 +1,31 @@
+unmanaged implementation in class zbp_comp_i_h unique;
+strict ( 2 );
+
+define behavior for ZCOMP_I_H alias Root
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  //  create;
+  //  update;
+  //  delete;
+  association _Child; //{ create; }
+  field ( readonly ) Companycode, BusinessPartner, Clearingaccountingdocument, clearingdocFiscalYear;
+
+  //Actions
+  static action set_dates external 'SetData' parameter ZCOMP_DATAPAR;
+  action compensa external 'Compensa' parameter ZCOMP_PARAMETRI result [1] $self;
+}
+
+define behavior for ZCOMP_I_P alias Child
+//late numbering
+lock dependent by _Root
+authorization dependent by _Root
+//etag master <field_name>
+{
+//  update;
+//  delete;
+  field ( readonly ) Companycode, BusinessPartner, AccountingDocument, FiscalYear, ClearingAccountingDocument, ClearingDocFiscalYear;
+  association _Root;
+}

@@ -1,0 +1,27 @@
+managed;
+strict ( 2 );
+define behavior for ZCOMP_R_TPDOCTP alias TpDoc
+implementation in class ZCOMP_BP_R_TPDOCTP unique
+persistent table ZCOMP_TPDOC
+//etag master Companycode
+lock master
+authorization master( global )
+
+{
+  field ( readonly : update )
+   Companycode,
+   Financialaccounttype,
+   Accountingdocumenttype;
+
+
+  create;
+  update;
+  delete;
+
+  mapping for ZCOMP_TPDOC
+  {
+    Companycode = COMPANYCODE;
+    Financialaccounttype = FINANCIALACCOUNTTYPE;
+    Accountingdocumenttype = ACCOUNTINGDOCUMENTTYPE;
+  }
+}

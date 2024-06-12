@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service Definition'
+define service ZCOMP_UI {
+  expose ZCOMP_C_H as Root;
+  expose ZCOMP_C_P as Child;
+}

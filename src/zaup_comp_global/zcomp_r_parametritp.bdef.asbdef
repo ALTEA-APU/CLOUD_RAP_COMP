@@ -1,0 +1,25 @@
+managed;
+strict ( 2 );
+define behavior for ZCOMP_R_PARAMETRITP alias Parametri
+implementation in class ZCOMP_BP_R_PARAMETRITP unique
+persistent table ZCOMP_PAR
+//etag master Companycode
+lock master
+authorization master( global )
+
+{
+  field ( readonly : update )
+   Companycode;
+
+
+  create;
+  update;
+  delete;
+
+  mapping for ZCOMP_PAR
+  {
+    Companycode = COMPANYCODE;
+    Accountingdocumenttype = ACCOUNTINGDOCUMENTTYPE;
+    Currency = CURRENCY;
+  }
+}
